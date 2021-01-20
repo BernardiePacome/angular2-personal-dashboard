@@ -16,6 +16,8 @@ import {MatCardModule} from '@angular/material/card';
 import {locationReducer} from './location-reducer';
 import {WeatherService} from './services/weather.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ForecastComponent } from './components/forecast/forecast.component';
+import { ForecastCardComponent } from './components/forecast-card/forecast-card.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     WeatherComponent,
     MusicPlayerComponent,
     TodoListComponent,
+    ForecastComponent,
+    ForecastCardComponent,
   ],
   imports: [BrowserModule,
     MatButtonModule,

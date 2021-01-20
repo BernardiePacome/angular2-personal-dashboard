@@ -48,10 +48,8 @@ export class WeatherComponent implements OnInit {
     this.weatherService.getCurrentWeather(loc).subscribe(
       (res) => {
         this.currentWeather = res;
-        console.log(this.currentWeather);
-
         this.weatherCondition = this.currentWeather.weather[0].main;
-        this.setWeatherIcon();
+        this.imgIconRef = this.weatherService.getWeatherIcon(this.weatherCondition);
       },
       (err) => {
         if (err.error && err.error.message) {
@@ -61,28 +59,5 @@ export class WeatherComponent implements OnInit {
       },
       () => {}
     );
-  }
-
-  setWeatherIcon(): void {
-    switch (this.weatherCondition) {
-      case 'Clear':
-        this.imgIconRef = 'assets/icons/art_clear.png';
-        break;
-      case 'Clouds':
-        this.imgIconRef = 'assets/icons/art_clouds.png';
-        break;
-      case 'Rain':
-        this.imgIconRef = 'assets/icons/art_rain.png';
-        break;
-      case 'Mist':
-        this.imgIconRef = 'assets/icons/art_mist.png';
-        break;
-      case 'Snow':
-        this.imgIconRef = 'assets/icons/art_snow.png';
-        break;
-      default:
-        this.imgIconRef = 'assets/icons/art_rain.png';
-        break;
-    }
   }
 }

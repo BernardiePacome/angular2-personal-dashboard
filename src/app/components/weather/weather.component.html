@@ -1,4 +1,4 @@
-<div class="weather-container container">
+<div *ngIf="currentWeather" class="weather-container container">
   <div class="weather-container__city col-12">
     {{ currentWeather.name }}
   </div>
@@ -10,13 +10,13 @@
   <div class="weather-container__current-temperature">
     <p>Right now:</p>
     <p class="weather-container__current-temperature__real-temperature">
-      {{ currentWeather.main.temp - 273.5 | number: "1.0-0" }}<sup>o</sup>C
+      {{ currentWeather.main?.temp - 273.5 | number: "1.0-0" }}<sup>o</sup>C
     </p>
   </div>
 
   <div class="weather-container__feels-like">
     <p>
-      Feels like: {{ currentWeather.main.feels_like - 273.5 | number: "1.0-0"
+      Feels like: {{ currentWeather.main?.feels_like - 273.5 | number: "1.0-0"
       }}<sup>o</sup>C
     </p>
   </div>
@@ -26,26 +26,28 @@
       <div class="col-6">
         <div class="weather-container__specifics-container__temperature-low">
           <fa-icon [icon]="faArrowDown"></fa-icon
-          >{{ currentWeather.main.temp_min - 273.5 | number: "1.0-0"
+          >{{ currentWeather.main?.temp_min - 273.5 | number: "1.0-0"
           }}<sup>o</sup>C
         </div>
       </div>
+
       <div class="col-6">
         <div class="weather-container__specifics-container__temperature-high">
           <fa-icon [icon]="faArrowUp"></fa-icon
-          >{{ currentWeather.main.temp_max - 273.5 | number: "1.0-0"
+          >{{ currentWeather.main?.temp_max - 273.5 | number: "1.0-0"
           }}<sup>o</sup>C
         </div>
       </div>
     </div>
+
     <div class="row">
       <div class="weather-container__specifics-container__complementary-info">
         <p>
-          Humidity: {{currentWeather.main.humidity}} %
+          Humidity: {{currentWeather.main?.humidity}} %
         </p>
 
         <p>
-          Pressure: {{currentWeather.main.pressure}}
+          Pressure: {{currentWeather.main?.pressure}}
         </p>
 
         <p>

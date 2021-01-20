@@ -2,14 +2,17 @@
   border-radius: 25px;
   border: 3px solid white;
   max-width: 400px;
+
   &__city {
     padding-top: 20px;
     padding-bottom: 40px;
     font-size: larger;
     text-align: center;
   }
+
   &__weather-icon {
     min-width: 200px;
+
     img {
       display: block;
       width: auto;
@@ -18,6 +21,7 @@
       margin: 0 auto;
     }
   }
+
   &__current-temperature {
     margin-top: 10px;
     font-size: larger;
@@ -40,7 +44,7 @@
   &__specifics-container{
     border-radius: 20px;
     border: 2px solid white;
-    max-width: 370px;
+    min-width: 360px;
     padding-top: 10px;
     margin-bottom: 20px;
 
