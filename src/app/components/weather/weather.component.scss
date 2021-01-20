@@ -1,0 +1,72 @@
+.weather-container {
+  border-radius: 25px;
+  border: 3px solid white;
+  max-width: 400px;
+  &__city {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    font-size: larger;
+    text-align: center;
+  }
+  &__weather-icon {
+    min-width: 200px;
+    img {
+      display: block;
+      width: auto;
+      height: auto;
+      min-width: 100px;
+      margin: 0 auto;
+    }
+  }
+  &__current-temperature {
+    margin-top: 10px;
+    font-size: larger;
+    text-align: center;
+    p {
+      margin-bottom: 10px;
+    }
+
+    &__real-temperature{
+      font-size: 40px;
+    }
+  }
+
+  &__feels-like{
+    margin-top: 10px;
+    font-size: medium;
+    text-align: center;
+  }
+
+  &__specifics-container{
+    border-radius: 20px;
+    border: 2px solid white;
+    max-width: 370px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+
+    fa-icon{
+      font-size: 20px;
+      padding-right: 10px;
+    }
+
+    p {
+      margin-left: 25px;
+    }
+
+    &__temperature-low {
+      margin-left: 20px;
+      text-align: left;
+      font-size: medium;
+    }
+
+    &__temperature-high {
+      margin-right: 20px;
+      text-align: right;
+      font-size: medium;
+    }
+
+    &__complementary-info {
+      padding: 20px 0 10px 0;
+    }
+  }
+}

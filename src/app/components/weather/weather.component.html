@@ -1,81 +1,62 @@
-<h1 class="center">Current weather for {{currentWeather.name}}</h1>
-<img [src]="imgIconRef">
-<table>
-  <tbody>
-  <tr>
-    <td>
-      <h3>Current Temperature:</h3>
-    </td>
-    <td>
-      <h3>{{currentWeather.main?.temp - 273.15 | number:'1.0-0'}}<sup>o</sup>C</h3>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <h3>Maximum Temperature:</h3>
-    </td>
-    <td>
-      <h3>{{currentWeather.main?.temp - 273.15 | number:'1.0-0'}}<sup>o</sup>C</h3>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <h3>Minimum Temperature:</h3>
-    </td>
-    <td>
-      <h3>{{currentWeather.main?.temp_min - 273.15 | number:'1.0-0'}}<sup>o</sup>C</h3>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <h3>Clouds:</h3>
-    </td>
-    <td>
-      <h3>{{currentWeather.clouds?.all}}%</h3>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <h3>Humidity</h3>
-    </td>
-    <td>
-      <h3>{{currentWeather.main?.humidity}}%</h3>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <h3>Pressure</h3>
-    </td>
-    <td>
-      <h3>{{currentWeather.main?.pressure}}mb</h3>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <h3>Sunrise</h3>
-    </td>
-    <td>
-      <h3>{{currentWeather.sys?.sunrise*1000 | date:'long'}}</h3>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <h3>Sunset</h3>
-    </td>
-    <td>
-      <h3>{{currentWeather.sys?.sunset*1000 | date:'long'}}</h3>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <h3>Visibility</h3>
-    </td>
-    <td>
-      <h3>{{currentWeather.visibility}}m</h3>
-    </td>
-  </tr>
-  </tbody>
-</table>
-<div *ngIf='!resultFound()'>
-  <h1 class="center">{{msg || 'Failed to get weather.'}}</h1>
+<div class="weather-container container">
+  <div class="weather-container__city col-12">
+    {{ currentWeather.name }}
+  </div>
+
+  <div class="weather-container__weather-icon">
+    <img [src]="imgIconRef" />
+  </div>
+
+  <div class="weather-container__current-temperature">
+    <p>Right now:</p>
+    <p class="weather-container__current-temperature__real-temperature">
+      {{ currentWeather.main.temp - 273.5 | number: "1.0-0" }}<sup>o</sup>C
+    </p>
+  </div>
+
+  <div class="weather-container__feels-like">
+    <p>
+      Feels like: {{ currentWeather.main.feels_like - 273.5 | number: "1.0-0"
+      }}<sup>o</sup>C
+    </p>
+  </div>
+
+  <div class="weather-container__specifics-container">
+    <div class="row">
+      <div class="col-6">
+        <div class="weather-container__specifics-container__temperature-low">
+          <fa-icon [icon]="faArrowDown"></fa-icon
+          >{{ currentWeather.main.temp_min - 273.5 | number: "1.0-0"
+          }}<sup>o</sup>C
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="weather-container__specifics-container__temperature-high">
+          <fa-icon [icon]="faArrowUp"></fa-icon
+          >{{ currentWeather.main.temp_max - 273.5 | number: "1.0-0"
+          }}<sup>o</sup>C
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="weather-container__specifics-container__complementary-info">
+        <p>
+          Humidity: {{currentWeather.main.humidity}} %
+        </p>
+
+        <p>
+          Pressure: {{currentWeather.main.pressure}}
+        </p>
+
+        <p>
+          <fa-icon [icon]="faSun"></fa-icon>&nbsp;{{ currentWeather.sys?.sunrise*1000 | date: 'long'}}
+        </p>
+
+        <p>
+          <fa-icon [icon]="faMoon"></fa-icon>&nbsp;{{ currentWeather.sys?.sunset*1000 | date: 'long'}}
+        </p>
+
+      </div>
+    </div>
+  </div>
 </div>

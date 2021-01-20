@@ -15,6 +15,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {locationReducer} from './location-reducer';
 import {WeatherService} from './services/weather.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {WeatherService} from './services/weather.service';
     MatInputModule,
     MatCardModule,
     HttpClientModule,
-    MatListModule],
+    MatListModule,
+    FontAwesomeModule],
 
   exports: [WeatherComponent],
   providers: [WeatherService],

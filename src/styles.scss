@@ -1,4 +1,7 @@
-html {
-  color: white;
-  background-color: #151515;
+@import url(http://fonts.googleapis.com/css?family=Nurom:200,300,600);
+
+html body {
+  color: white !important;
+  background-color: #151515 !important;
+  font-family: 'Nurom', sans-serif !important;
 }

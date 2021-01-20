@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { WeatherService } from '../../services/weather.service';
+import {faLongArrowAltUp} from '@fortawesome/free-solid-svg-icons';
+import {faLongArrowAltDown} from '@fortawesome/free-solid-svg-icons';
+import {faSun} from '@fortawesome/free-solid-svg-icons';
+import {faMoon} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-weather',
@@ -14,6 +18,11 @@ export class WeatherComponent implements OnInit {
   msg: string | undefined;
   weatherCondition: string | undefined;
   imgIconRef: string | undefined;
+  faArrowUp = faLongArrowAltUp;
+  faArrowDown = faLongArrowAltDown;
+  faSun = faSun;
+  faMoon = faMoon;
+
 
   constructor(
     private store: Store<any>,
@@ -41,9 +50,7 @@ export class WeatherComponent implements OnInit {
         this.currentWeather = res;
         console.log(this.currentWeather);
 
-        this.weatherCondition = this.currentWeather.weather[0].description;
-        console.log(this.weatherCondition);
-        this.weatherCondition = 'clear sky';
+        this.weatherCondition = this.currentWeather.weather[0].main;
         this.setWeatherIcon();
       },
       (err) => {
@@ -58,8 +65,23 @@ export class WeatherComponent implements OnInit {
 
   setWeatherIcon(): void {
     switch (this.weatherCondition) {
-      case 'clear sky':
+      case 'Clear':
         this.imgIconRef = 'assets/icons/art_clear.png';
+        break;
+      case 'Clouds':
+        this.imgIconRef = 'assets/icons/art_clouds.png';
+        break;
+      case 'Rain':
+        this.imgIconRef = 'assets/icons/art_rain.png';
+        break;
+      case 'Mist':
+        this.imgIconRef = 'assets/icons/art_mist.png';
+        break;
+      case 'Snow':
+        this.imgIconRef = 'assets/icons/art_snow.png';
+        break;
+      default:
+        this.imgIconRef = 'assets/icons/art_rain.png';
         break;
     }
   }
