@@ -1,0 +1,37 @@
+.forecast-card {
+  margin: 10px;
+  border-radius: 15px;
+  border: 1px solid white;
+  width: 120px;
+  height: 180px;
+
+  position: relative;
+  &__content {
+
+    padding: 20px;
+    max-height: 200px;
+
+    &__date {
+      text-align: center;
+    }
+
+    &__icon {
+      margin-top: 15px;
+
+      img {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 70px;
+        margin: 0 auto;
+        padding: 10px;
+      }
+    }
+
+    &__temperature {
+      position: absolute;
+      bottom: 10px;
+      left: 42px;
+    }
+  }
+}

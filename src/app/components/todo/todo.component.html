@@ -1,0 +1,13 @@
+<div class="todo-container">
+  <input
+    type="text"
+    class="text-input"
+    [(ngModel)]="userText"
+    (keypress)="keyEvent($event)"
+  />
+  <div *ngFor="let todos of todoList" class="todo-card">
+    {{ todos.taskTitle }}
+    <input class="todo-card__checkbox" (change)="toggleDone()" [(ngModel)]="todos.done" type="checkbox" data-toggle="toggle"/>
+  </div>
+  <div *ngIf="hasDoneTasks()" (click)="removeDoneTasks()"> Remove Done Tasks </div>
+</div>

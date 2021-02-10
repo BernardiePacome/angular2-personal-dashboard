@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './components/weather/weather.component';
 import { MusicPlayerComponent } from './components/music-player/music-player.component';
-import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
@@ -20,15 +19,16 @@ import { ForecastComponent } from './components/forecast/forecast.component';
 import { ForecastCardComponent } from './components/forecast-card/forecast-card.component';
 import { MusicService } from './services/music.service';
 import { SoundcloudService } from './services/soundcloud.service';
+import { TodoComponent } from './components/todo/todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherComponent,
     MusicPlayerComponent,
-    TodoListComponent,
     ForecastComponent,
     ForecastCardComponent,
+    TodoComponent,
   ],
   imports: [
     BrowserModule,

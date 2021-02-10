@@ -1,0 +1,12 @@
+<div class="forecast-card">
+  <div class="forecast-card__content">
+    <div class="forecast-card__content__date">
+      {{ forecast.date | date: "EEEE" }}
+    </div>
+    <div class="forecast-card__content__icon"><img [src]="imgIconRef" /></div>
+    <div   class="forecast-card__content__temperature">
+        {{ forecast.temp - 273.5 | number: "1.0-0" }}<sup>o</sup>C
+    </div>
+  </div>
+</div>
+

@@ -23,8 +23,6 @@ export class ForecastComponent implements OnInit {
               singleForecast.date = new Date(forecast.list[i].dt * 1000);
               singleForecast.temp = forecast.list[i].main.temp;
               singleForecast.weather = forecast.list[i].weather[0].main;
-
-              console.log(singleForecast.weather);
               this.forecasts.push(singleForecast);
             }
           }
